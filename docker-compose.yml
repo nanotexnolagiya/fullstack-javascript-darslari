@@ -1,0 +1,28 @@
+version: "1"
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: dev_quiz
+      POSTGRES_PASSWORD: qwe123
+      POSTGRES_DB: deal
+      POSTGRES_HOST: postgres
+      NODE_ENV: development
+      PORT: 3030
+    ports:
+      - "3030:3030"
+    command: npm run dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  postgres:
+    image: postgres
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: dev_quiz
+      POSTGRES_PASSWORD: qwe123
+      POSTGRES_DB: deal

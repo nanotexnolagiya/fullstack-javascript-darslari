@@ -1,6 +1,8 @@
 
+const { TABLES } = require('../../config')
+
 exports.up = function(knex) {
-  return knex.schema.createTable('UserSMSCodes', (t) => {
+  return knex.schema.createTable(TABLES.USER_SMS_CODES, (t) => {
     t.increments('id');
     t.string('code');
     t.timestamp('expired');
@@ -11,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('UserSMSCodes')
+  return knex.schema.dropTable(TABLES.USER_SMS_CODES)
 };

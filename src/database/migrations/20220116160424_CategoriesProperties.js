@@ -1,6 +1,7 @@
+const { TABLES } = require('../../config')
 
 exports.up = function(knex) {
-  return knex.schema.createTable('CategoriesProperties', (t) => {
+  return knex.schema.createTable(TABLES.CATEGORIES_PROPERTIES, (t) => {
     t.increments('id');
     t.integer('categoryId').unsigned().notNullable();
     t.integer('propertyId').unsigned().notNullable();
@@ -11,5 +12,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('CategoriesProperties')
+  return knex.schema.dropTable(TABLES.CATEGORIES_PROPERTIES)
 };

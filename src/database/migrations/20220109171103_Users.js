@@ -1,6 +1,7 @@
+const { TABLES } = require('../../config')
 
 exports.up = function(knex) {
-  return knex.schema.createTable('Users', (t) => {
+  return knex.schema.createTable(TABLES.USERS, (t) => {
     t.increments('id');
     t.string('email').unique().notNullable();
     t.string('phone').unique().nullable();
@@ -13,5 +14,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('Users')
+  return knex.schema.dropTable(TABLES.USERS)
 };

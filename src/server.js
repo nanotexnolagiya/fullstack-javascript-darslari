@@ -32,7 +32,7 @@ Server.prototype.routes = function () {
   })
   this.app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
         message: err.message,
         error: err
     });

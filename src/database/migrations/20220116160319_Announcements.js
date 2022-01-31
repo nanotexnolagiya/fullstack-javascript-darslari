@@ -7,7 +7,7 @@ exports.up = function(knex) {
     t.integer('userId').unsigned().notNullable();
     t.foreign('categoryId').references('id').inTable('Categories');
     t.foreign('userId').references('id').inTable('Users');
-    t.timestamps();
+    t.timestamps(true, true, true);
   })
 };
 

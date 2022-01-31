@@ -10,7 +10,7 @@ exports.up = function(knex) {
 
     t.foreign('propertyId').references('id').inTable('Properties');
     t.foreign('announcementId').references('id').inTable('Announcements');
-    t.timestamps();
+    t.timestamps(true, true, true);
   })
 };
 

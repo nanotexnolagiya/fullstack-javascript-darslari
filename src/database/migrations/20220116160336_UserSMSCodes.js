@@ -8,7 +8,7 @@ exports.up = function(knex) {
     t.timestamp('expired');
     t.integer('userId').unsigned().notNullable();
     t.foreign('userId').references('id').inTable('Users');
-    t.timestamps();
+    t.timestamps(true, true, true);
   })
 };
 

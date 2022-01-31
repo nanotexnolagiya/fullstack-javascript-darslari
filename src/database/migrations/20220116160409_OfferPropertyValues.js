@@ -9,7 +9,7 @@ exports.up = function(knex) {
     t.integer('offerId').unsigned().notNullable();
     t.foreign('propertyId').references('id').inTable('Properties');
     t.foreign('offerId').references('id').inTable('Offers');
-    t.timestamps();
+    t.timestamps(true, true, true);
   })
 };
 

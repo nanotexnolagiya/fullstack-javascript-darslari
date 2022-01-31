@@ -5,7 +5,7 @@ exports.up = function(knex) {
     t.increments('id');
     t.string('name');
     t.integer('parent');
-    t.timestamps();
+    t.timestamps(true, true, true);
   })
 };
 

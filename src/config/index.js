@@ -10,6 +10,20 @@ const TABLES = {
   CATEGORIES_PROPERTIES: 'CategoriesProperties',
 }
 
+const TOKEN_SECRET_KEY = 'N7G217XGSD126X216E'
+
+const SMTP = {
+  host: "smtp.mail.ru",
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'nanotexnolagiya',
+    pass: 'EPPpqgg1vRsdhq75rr66',
+  },
+}
+
 module.exports = {
-  TABLES
+  TABLES,
+  TOKEN_SECRET_KEY,
+  SMTP
 }

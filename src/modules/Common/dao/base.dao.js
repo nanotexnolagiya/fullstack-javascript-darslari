@@ -22,6 +22,18 @@ BaseDao.prototype.find = function (options = {}) {
   return this.getTable().select().where(options).first()
 }
 
+BaseDao.prototype.findOrCreate = function (options = {}, data) {
+  return new Promise((resolve, reject) => {
+    this.getTable().select().where(options).first().then(result => {
+      if (result) {
+        return resolve(result)
+      } else {
+        return this.create(data).then(resolve).catch(reject)
+      }
+    })
+  })
+}
+
 BaseDao.prototype.create = function (data) {
   return this.getTable().insert(data).returning('*')
 }
@@ -31,7 +43,7 @@ BaseDao.prototype.update = function (options, data) {
 }
 
 BaseDao.prototype.delete = function (options) {
-  return this.getTable().where(options).delete().returning('*')
+  return this.getTable().where(options).del()
 }
 
 module.exports = { BaseDao }

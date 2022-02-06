@@ -17,9 +17,11 @@ BaseController.prototype.find = function (req, res, next) {
 
 BaseController.prototype.create = function (req, res, next) {
   const { body } = req
-  this.dao.create(body).then(([item]) => {
-    res.status(201).json(item)
-  }).catch(next)
+  this.dao.create(body)
+    .then(([item]) => {
+      res.status(201).json(item)
+    })
+    .catch(next)
 }
 
 BaseController.prototype.update = function (req, res, next) {
@@ -33,8 +35,8 @@ BaseController.prototype.update = function (req, res, next) {
 BaseController.prototype.delete = function (req, res, next) {
   const { body, params } = req
 
-  this.dao.delete({ id: params.id }, body).then(result => {
-    res.status(204).json(result)
+  this.dao.delete({ id: params.id }, body).then(() => {
+    res.status(204).json({ OK: true })
   }).catch(next)
 }
 

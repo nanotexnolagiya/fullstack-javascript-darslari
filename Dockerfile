@@ -2,7 +2,7 @@ FROM node:lts
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 COPY . .
 RUN chown -R node:node /app
 USER node
